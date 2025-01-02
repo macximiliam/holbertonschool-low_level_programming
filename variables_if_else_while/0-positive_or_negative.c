@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ * main - Entry point
+ *
+ * Description: Asigna un número aleatorio a la variable n y
+ * imprime si el número es positivo, negativo o cero.
+ *
+ * Return: 0 (Always success)
+ */
+
 int main(void)
 {
 	int n;
