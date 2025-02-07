@@ -20,4 +20,5 @@ int _strcmp(char *s1, char *s2);
  char *cap_string(char *);
  char *leet(char *);
  char *rot13(char *);
+ int _putchar(char c);
 #endif/** MAIN_H*/
