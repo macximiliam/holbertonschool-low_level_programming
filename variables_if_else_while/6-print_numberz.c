@@ -1,10 +1,10 @@
 #include<stdio.h>
 
 /**
- * main - Prints the alphabet in lowercase.
+ * main - Prints the numbers from 0 to 9, each on a new line
  *
- * Description: This function prints all the lowercase letters of the alphabet
- * except character q and e
+ * Description: This function prints numbers of base 10 starting from 0,
+ * used only putchar and character in ASCII.
  *
  * Return: Always 0 (Success)
  */
