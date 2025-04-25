@@ -6,4 +6,6 @@ void reset_to_98(int *);
 int _strlen(char *);
 void _puts(char *str);
 int _putchar(char);
+void print_rev(char *);
+void rev_string(char *s);
 #endif/*MAIN.H*/
