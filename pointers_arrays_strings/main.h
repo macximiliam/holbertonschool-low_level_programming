@@ -12,4 +12,5 @@ void puts2(char *);
 void puts_half(char *);
 void print_array(int *, int n);
 char *_strcpy(char *, char *);
+int _atoi(char *);
 #endif/*MAIN.H*/
