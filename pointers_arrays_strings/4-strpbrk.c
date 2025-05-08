@@ -26,21 +26,15 @@ char *_strchr(char *s, char c)
 }
 
 /**
- * _strpbrk - Searches a string for any of a set of bytes.
- * Finds the first occurrence in the string s of any of the
- * characters in the string accept.
+ * _strpbrk - Finds the first character in the string s that matches
+ * any of the bytes in the string accept.
+ * @s: The string to search through.
+ * @accept: The string containing the bytes to search for in s.
  *
- * Note: This implementation uses a helper function _strchr
- * and returns the null character '\0' (value 0) instead of NULL
- * to indicate that the substring was not found, which differs
- * from the standard strpbrk behavior that returns NULL.
- *
- * @s: The string where the search will be performed.
- * @accept: The string containing the characters to search for.
- *
- * Return: A pointer to the byte in s that matches one of the bytes in accept,
- * or the null character '\0' if no such byte is found.
+ * Return: Returns a pointer to the first character in s that matches
+ * one of the bytes in accept, or NULL if no such byte is found.
  */
+
 char *_strpbrk(char *s, char *accept)
 {
 	if (!s || !accept)
