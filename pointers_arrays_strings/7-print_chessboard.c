@@ -1,25 +1,24 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_chessboard - Imprime un tablero de ajedrez.
- * @a: Un puntero a un arreglo bidimensional de 8x8 caracteres
- * que representa el tablero de ajedrez.
+ * print_chessboard - Prints a chessboard.
+ * @a: A pointer to an 8x8 array of characters
+ * representing the chessboard.
  *
- * Esta función itera a través del arreglo 8x8 e imprime cada carácter,
- * seguido de un salto de línea después de cada fila.
+ * This function iterates through the 8x8 array and prints each character,
+ * followed by a newline after each row.
  */
 void print_chessboard(char (*a)[8])
 {
-	int i, j;
+	int i;
+	int j;
 
-	for (i = 0; i < 8; i ++)
+	for (i = 0; i < 8; i++)
 	{
-		for (j = 0; j < 8; j ++)
+		for (j = 0; j < 8; j++)
 		{
-		   if (a[i][j] != 0)
-			putchar(a[i][j]);
+			_putchar(a[i][j]);
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 }
