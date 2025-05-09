@@ -38,7 +38,7 @@ char *_strchr(char *s, char c)
 char *_strpbrk(char *s, char *accept)
 {
 	if (!s || !accept)
-	return ('\0');
+		return ('\0');
 
 	for (; *s != '\0'; s++)
 	{
