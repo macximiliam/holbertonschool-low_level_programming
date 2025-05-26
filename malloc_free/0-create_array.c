@@ -1,24 +1,28 @@
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * create_array - Crea un arreglo de caracteres e inicializa con un carácter específico.
- * @size: Tamaño del arreglo.
- * @c: Carácter con el que inicializar cada elemento.
+ * create_array - Creates an array of characters and initializes
+ * it with a specific character.
+ * @size: Size of the array.
+ * @c: Character to initialize each element with.
  *
- * Return: Puntero al arreglo, o NULL si falla.
+ * Return: Pointer to the array, or NULL if memory allocation fails.
  */
 char *create_array(unsigned int size, char c)
 {
-    if (size == 0)
-        return NULL;
-
-    char *array = malloc(size * sizeof(char));
-    if (array == NULL)
-        return NULL;
-
     unsigned int i;
+    char *array;
+
+    if (size == 0)
+        return (NULL);
+
+    array = malloc(size * sizeof(char));
+    if (array == NULL)
+        return (NULL);
+
     for (i = 0; i < size; i++)
         array[i] = c;
 
-    return array;
+    return (array);
 }
