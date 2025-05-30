@@ -22,4 +22,6 @@ struct dog
 	char *owner;
 };
 
+void init_dog(struct dog *, char *, float, char *);
+
 #endif /* _DOG_H_ */
