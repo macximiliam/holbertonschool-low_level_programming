@@ -1,8 +1,7 @@
+
 #include <stdlib.h>
 #include <string.h>
 #include "dog.h"
-
-
 
 /**
  * _copy_string_safe - Creates a safe copy of
@@ -15,11 +14,19 @@
 static char *_copy_string_safe(char *src)
 {
 	char *dest;
+	unsigned int len = 0;
 
 	if (src == NULL)
 		return (NULL);
 
-	dest = malloc(sizeof(char) * (strlen(src) + 1));
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+
+
+	dest = malloc(sizeof(char) * (len + 1));
 	if (dest == NULL)
 		return (NULL);
 
@@ -46,7 +53,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	new_dog_ptr->name = _copy_string_safe(name);
-
 	if (name != NULL && new_dog_ptr->name == NULL)
 	{
 		free(new_dog_ptr);
@@ -54,7 +60,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	new_dog_ptr->owner = _copy_string_safe(owner);
-
 	if (owner != NULL && new_dog_ptr->owner == NULL)
 	{
 		if (new_dog_ptr->name != NULL)
