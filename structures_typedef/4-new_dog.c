@@ -1,6 +1,4 @@
-
 #include <stdlib.h>
-#include <string.h>
 #include "dog.h"
 
 /**
@@ -15,6 +13,7 @@ static char *_copy_string_safe(char *src)
 {
 	char *dest;
 	unsigned int len = 0;
+	unsigned int i;
 
 	if (src == NULL)
 		return (NULL);
@@ -30,7 +29,12 @@ static char *_copy_string_safe(char *src)
 	if (dest == NULL)
 		return (NULL);
 
-	strcpy(dest, src);
+
+	for (i = 0; i <= len; i++)
+	{
+		dest[i] = src[i];
+	}
+
 	return (dest);
 }
 
@@ -46,6 +50,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog_ptr;
 
+
 	new_dog_ptr = malloc(sizeof(dog_t));
 	if (new_dog_ptr == NULL)
 	{
@@ -53,20 +58,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	new_dog_ptr->name = _copy_string_safe(name);
+
 	if (name != NULL && new_dog_ptr->name == NULL)
 	{
 		free(new_dog_ptr);
 		return (NULL);
 	}
 
+
 	new_dog_ptr->owner = _copy_string_safe(owner);
+
 	if (owner != NULL && new_dog_ptr->owner == NULL)
 	{
+
 		if (new_dog_ptr->name != NULL)
 			free(new_dog_ptr->name);
 		free(new_dog_ptr);
 		return (NULL);
 	}
+
 
 	new_dog_ptr->age = age;
 
