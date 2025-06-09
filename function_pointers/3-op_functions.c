@@ -52,11 +52,11 @@ int op_div(int a, int b)
 		printf("Error\n");
 		exit(100);
 	}
-	else 
+	else
 	{
 		return (a / b);
 	}
-   
+
 }
 /**
  * op_mod - Returns the remainder of the division of two integers.
@@ -73,7 +73,7 @@ int op_mod(int a, int b)
 		printf("Error\n");
 		exit(100);
 	}
-	else 
+	else
 	{
 		return (a % b);
 	}
