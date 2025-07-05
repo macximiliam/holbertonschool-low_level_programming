@@ -3,7 +3,22 @@
 #include "lists.h"
 
 /**
- * add_node - adds a new node at the beginning of a singly linked list
+ * str_len - calculates the length of a string
+ * @s: pointer to the null-terminated string
+ *
+ * Return: number of characters before the terminating null byte
+ */
+static unsigned int str_len(const char *s)
+{
+	unsigned int len = 0;
+
+	while (s[len])
+		len++;
+	return (len);
+}
+
+/**
+ * add_node - adds a node at the beginning of a singly linked list
  * @head: pointer to the head of the list
  * @str: string to duplicate and store in the new node
  *
@@ -27,7 +42,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	new->len = strlen(new->str);
+	new->len = str_len(new->str);
 	new->next = *head;
 	*head = new;
 
