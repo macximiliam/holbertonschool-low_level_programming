@@ -83,9 +83,11 @@ void copy_file(const char *file_from, const char *file_to)
 int main(int ac, char **av)
 {
 	if (ac != 3)
-		print_error(97, "Usage: cp file_from file_to\n", "");
+	{
+		dprintf(2, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 
 	copy_file(av[1], av[2]);
-
 	return (0);
 }
