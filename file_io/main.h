@@ -16,12 +16,13 @@ void transfer_data(int fd_from, int fd_to,
 void print_error(const char *msg, const char *file);
 
 /* Funciones ELF */
-void print_abi_version(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
+void print_magic(unsigned char ident[]);
+void print_class(unsigned char ident[]);
+void print_data(unsigned char ident[]);
+void print_version(unsigned char ident[]);
+void print_osabi(unsigned char ident[]);
+void print_abi_version(unsigned char ident[]);
+
 
 /* Funciones de swap (endianness) */
 uint16_t swap16(uint16_t v);
