@@ -7,34 +7,36 @@
 #define BUFFER_SIZE 1024
 
 /**
- * print_error - Prints an error message and exits.
- * @code: Exit code.
+ * print_error - Prints error message and code to stdout, then exits.
+ * @code: Exit code to print.
  * @msg: Error message.
- * @arg: File name or fd to display.
+ * @arg: Related file or descriptor.
  */
 void print_error(int code, const char *msg, const char *arg)
 {
-	dprintf(2, "%s%s\n", msg, arg);
+	printf("%s%s\n", msg, arg);
+	printf("%d\n", code);
 	exit(code);
 }
 
 /**
- * close_file - Closes a file descriptor and handles error.
- * @fd: File descriptor to close.
+ * close_file - Closes a file descriptor.
+ * @fd: The file descriptor to close.
  */
 void close_file(int fd)
 {
 	if (close(fd) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd);
+		printf("Error: Can't close fd %d\n", fd);
+		printf("100\n");
 		exit(100);
 	}
 }
 
 /**
  * copy_file - Copies content from one file to another.
- * @file_from: Source file path.
- * @file_to: Destination file path.
+ * @file_from: Source file.
+ * @file_to: Destination file.
  */
 void copy_file(const char *file_from, const char *file_to)
 {
@@ -74,17 +76,18 @@ void copy_file(const char *file_from, const char *file_to)
 }
 
 /**
- * main - Entry point for the cp program.
+ * main - Entry point for cp program.
  * @ac: Argument count.
  * @av: Argument vector.
  *
- * Return: 0 on success, exits with error code otherwise.
+ * Return: 0 on success, otherwise exits with proper code.
  */
 int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		printf("Usage: cp file_from file_to\n");
+		printf("97\n");
 		exit(97);
 	}
 
