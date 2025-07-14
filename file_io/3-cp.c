@@ -25,6 +25,21 @@ void check_args(int argc)
 }
 
 /**
+ * handle_error_and_exit - Prints an error message to stderr and exits.
+ * @message: The format string for the error message.
+ * @filename: The filename to be included in the error message.
+ * @exit_code: The exit code for the program.
+ *
+ * Description: This function centralizes error reporting and program exit.
+ */
+void handle_error_and_exit(const char *message,
+						   const char *filename, int exit_code)
+{
+	dprintf(STDERR_FILENO, message, filename);
+	exit(exit_code);
+}
+
+/**
  * open_from_file - Opens the source file for reading.
  * @filename: The name of the file to open.
  *
@@ -37,8 +52,8 @@ int open_from_file(const char *filename)
 	int fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-		exit(98);
+		handle_error_and_exit("Error: Can't read from file %s\n",
+							  filename, 98);
 	}
 	return (fd);
 }
@@ -60,8 +75,8 @@ int open_to_file(const char *filename, int fd_from)
 	if (fd == -1)
 	{
 		close_file_descriptor(fd_from, 100); /* Try to close fd_from */
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-		exit(99);
+		handle_error_and_exit("Error: Can't write to %s\n",
+							  filename, 99);
 	}
 	return (fd);
 }
@@ -89,8 +104,8 @@ void copy_file_content(int fd_from, int fd_to,
 		{
 			close_file_descriptor(fd_from, 100);
 			close_file_descriptor(fd_to, 100);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to_name);
-			exit(99);
+			handle_error_and_exit("Error: Can't write to %s\n",
+								  file_to_name, 99);
 		}
 	}
 
@@ -98,9 +113,8 @@ void copy_file_content(int fd_from, int fd_to,
 	{
 		close_file_descriptor(fd_from, 100);
 		close_file_descriptor(fd_to, 100);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-				file_from_name);
-		exit(98);
+		handle_error_and_exit("Error: Can't read from file %s\n",
+							  file_from_name, 98);
 	}
 }
 
