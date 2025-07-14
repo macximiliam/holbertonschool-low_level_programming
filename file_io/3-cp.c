@@ -10,7 +10,7 @@
  * print_error - Prints an error message and exits.
  * @code: Exit code.
  * @msg: Error message.
- * @arg: Argument to include in the message.
+ * @arg: File name or fd to display.
  */
 void print_error(int code, const char *msg, const char *arg)
 {
@@ -19,7 +19,7 @@ void print_error(int code, const char *msg, const char *arg)
 }
 
 /**
- * close_file - Closes a file descriptor.
+ * close_file - Closes a file descriptor and handles error.
  * @fd: File descriptor to close.
  */
 void close_file(int fd)
@@ -33,8 +33,8 @@ void close_file(int fd)
 
 /**
  * copy_file - Copies content from one file to another.
- * @file_from: Source file.
- * @file_to: Destination file.
+ * @file_from: Source file path.
+ * @file_to: Destination file path.
  */
 void copy_file(const char *file_from, const char *file_to)
 {
@@ -78,7 +78,7 @@ void copy_file(const char *file_from, const char *file_to)
  * @ac: Argument count.
  * @av: Argument vector.
  *
- * Return: 0 on success, or exits with error code.
+ * Return: 0 on success, exits with error code otherwise.
  */
 int main(int ac, char **av)
 {
