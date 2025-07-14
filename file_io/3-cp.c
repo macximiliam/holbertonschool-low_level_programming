@@ -1,8 +1,8 @@
-# include "main.h"
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #define BUFFER_SIZE 1024
 
@@ -28,12 +28,13 @@ void print_error(int code, const char *msg, const char *file)
  * @file_from: Source file name for errors
  * @file_to: Destination file name for errors
  */
-void transfer_data(int fd_from, int fd_to, const char *file_from, const char *file_to)
+void transfer_data(int fd_from, int fd_to,
+		   const char *file_from, const char *file_to)
 {
 	int r_bytes, w_bytes;
 	char buffer[BUFFER_SIZE];
 
-while ((r_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((r_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		w_bytes = write(fd_to, buffer, r_bytes);
 		if (w_bytes != r_bytes)
@@ -69,7 +70,7 @@ void copy_file(const char *file_from, const char *file_to)
 	{
 		close(fd_from);
 		print_error(99, "Error: Can't write to ", file_to);
-}
+	}
 
 	first_write = write(fd_to, buffer, first_read);
 	if (first_write != first_read)
@@ -85,7 +86,7 @@ void copy_file(const char *file_from, const char *file_to)
 		print_error(100, "Error: Can't close fd ", file_from);
 	if (close(fd_to) == -1)
 		print_error(100, "Error: Can't close fd ", file_to);
-	}
+}
 
 /**
  * main - Entry point
@@ -101,5 +102,5 @@ int main(int argc, char *argv[])
 
 	copy_file(argv[1], argv[2]);
 
-	return(0);
+	return (0);
 }
