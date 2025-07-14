@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
-#include "main.h"
 
 #define BUFFER_SIZE 1024
 
